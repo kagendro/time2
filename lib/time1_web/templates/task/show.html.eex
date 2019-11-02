@@ -1,0 +1,17 @@
+<h1>Show Task</h1>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @task.name %>
+  </li>
+
+  <li>
+    <strong>Hours:</strong>
+    <%= @task.hours %>
+  </li>
+
+</ul>
+
+<span><%= link "See All Tasks", to: Routes.task_path(@conn, :index) %></span>

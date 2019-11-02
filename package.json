@@ -1,0 +1,35 @@
+{
+  "name": "time1",
+  "version": "1.0.0",
+  "description": "To start your Phoenix server:",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kagendro/time1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kagendro/time1/issues"
+  },
+  "homepage": "https://github.com/kagendro/time1#readme",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.0"
+  },
+  "devDependencies": {
+    "fibers": "^4.0.2",
+    "node-gyp": "^6.0.0",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0",
+    "webpack": "^4.41.2"
+  }
+}
