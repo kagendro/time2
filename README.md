@@ -1,4 +1,4 @@
-# Time1
+# Time2
 
 To start your Phoenix server:
 
