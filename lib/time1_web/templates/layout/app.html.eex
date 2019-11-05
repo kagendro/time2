@@ -9,29 +9,6 @@
   </head>
   <body>
     <div class="container">
-      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <div class="col-4">
-          <a class="navbar-brand" href="#">Timesheet</a>
-        </div>
-        <div class="col-4">
-          <ul class="navbar-nav mr-auto">
-
-	      <%= link "Workers", to: Routes.worker_path(@conn, :index), class: "nav-link" %>
-	      <%= link "New Task", to: Routes.task_path(@conn, :new), class: "nav-link" %> 
-	      <%= link "All Task", to: Routes.task_path(@conn, :index), class: "nav-link" %> 
-          </ul>
-        </div>
-        <div class="col-4 text-light">
-          <%= if @current_worker do %>
-            Worker: <%= @current_worker.name %>
-            (<%= link("Logout", to: Routes.session_path(@conn, :delete),
-              method: :delete) %>)
-          <% else %>
-            <%= link("Login", to: Routes.session_path(@conn, :new)) %>
-          <% end %>
-        </div>
-
-      </nav>
       <div>
         <%= if get_flash(@conn, :info) do %>
           <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
