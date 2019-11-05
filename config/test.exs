@@ -1,10 +1,10 @@
 use Mix.Config
 
 # Configure your database
-config :time1, Time2.Repo,
-  username: "time2",
-  password: "shie5Ikeing5",
-  database: "time2_test",
+config :time1, Time1.Repo,
+  username: "time1",
+  password: "Pubae0iechoh",
+  database: "time1_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
 
