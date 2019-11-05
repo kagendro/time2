@@ -9,10 +9,3 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
-
-
-alias Time1.Repo
-alias Time1.Workers.Worker
-
-Repo.insert!(%Worker{name: "Kevin", email: "kevin.gendron@gmail.com"})
-Repo.insert!(%Worker{name: "Bob", email: "bob@example.com"})
