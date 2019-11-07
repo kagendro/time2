@@ -1,15 +1,15 @@
 ## Provided by Nat
 
-defmodule LensWeb.Plugs.RequireAuth do
+defmodule TaskWeb.Plugs.RequireAuth do
     import Plug.Conn
   
     def init(args), do: args
   
     def call(conn, _args) do
       token = List.first(get_req_header(conn, "x-auth"))
-      case Phoenix.Token.verify(LensWeb.Endpoint, "session", token, max_age: 86400) do
+      case Phoenix.Token.verify(TaskWeb.Endpoint, "session", token, max_age: 86400) do
         {:ok, user_id} ->
-          assign(conn, :current_user, Lens.Users.get_user!(user_id))
+          assign(conn, :current_user, Task.Users.get_user!(user_id))
         {:error, err} ->
           conn
           |> put_resp_header("content-type", "application/json; charset=UTF-8")

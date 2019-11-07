@@ -1,5 +1,5 @@
-defmodule LensWeb.Router do
-  use LensWeb, :router
+defmodule TaskWeb.Router do
+  use TaskWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -16,18 +16,18 @@ defmodule LensWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  scope "/ajax", LensWeb do
+  scope "/ajax", TaskWeb do
     pipe_through :ajax
 
     resources "/users", UserController, except: [:new, :edit]
-    resources "/photos", PhotoController, except: [:new, :edit]
-    get "/photos/:id/file", PhotoController, :file
+    resources "/tasks", TaskController, except: [:new, :edit]
+    get "/tasks/:id/file", TaskController, :file
     resources "/tags", TagController, except: [:new, :edit]
-    resources "/photo_tags", PhotoTagController, except: [:new, :edit]
+    resources "/task_tags", TaskTagController, except: [:new, :edit]
     resources "/sessions", SessionController, only: [:create], singleton: true
   end
 
-  scope "/", LensWeb do
+  scope "/", TaskWeb do
     pipe_through :browser
 
     get "/", PageController, :index

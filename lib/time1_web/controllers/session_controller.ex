@@ -1,9 +1,9 @@
-defmodule LensWeb.SessionController do
-    use LensWeb, :controller
+defmodule TaskWeb.SessionController do
+    use TaskWeb, :controller
   
-    action_fallback LensWeb.FallbackController
+    action_fallback TaskWeb.FallbackController
   
-    alias Lens.Users
+    alias Task.Users
   
     def create(conn, %{"email" => email, "password" => password}) do
       user = Users.authenticate_user(email, password)
