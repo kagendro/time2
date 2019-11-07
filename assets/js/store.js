@@ -73,6 +73,7 @@ function session(st0 = session0, action) {
     case 'LOG_IN':
       return action.data;
     case 'LOG_OUT':
+      console.log("LOGOUT")
       return null;
     default:
       return st0;
