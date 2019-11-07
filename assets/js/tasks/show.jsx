@@ -28,7 +28,10 @@ function tasksShow({id, task}) {
     <div>
       <h1>Show Task</h1>
       <img src={task.data} />
-      <p>Desc: {task.desc}</p>
+      <ul>
+        <li>Name: {task.name}</li>
+      </ul>
+      
     </div>
   );
 }

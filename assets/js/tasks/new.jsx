@@ -56,7 +56,7 @@ class TasksNew extends React.Component {
         <h1>New Task</h1>
         { error_msg }
         <Form.Group controlId="upload">
-          <Form.Label>Upload task</Form.Label>
+          <Form.Label>Task Name</Form.Label>
           <Form.Control type="file" onChange={(ev) => this.file_changed(ev)} />
         </Form.Group>
         <Form.Group controlId="desc">
