@@ -21,7 +21,7 @@ import deepFreeze from 'deep-freeze-strict';
  * }
  */
 
-function new_task(st0 = {file: null, desc: "", errors: null}, action) {
+function new_task(st0 = {name: "", hours: "", errors: null}, action) {
   switch (action.type) {
     case 'CHANGE_NEW_TASK':
       return Object.assign({}, st0, action.data);
