@@ -79,7 +79,7 @@ function session(st0 = session0, action) {
       console.log("LOGOUT")
       return null;
     default:
-      return st0;
+      return {};
   }
 }
 
