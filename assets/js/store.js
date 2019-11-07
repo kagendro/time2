@@ -1,3 +1,4 @@
+  
 import { createStore, combineReducers } from 'redux';
 import deepFreeze from 'deep-freeze-strict';
 
@@ -29,9 +30,19 @@ function new_task(st0 = {file: null, desc: "", errors: null}, action) {
   }
 }
 
+function login(st0 = {email: "", password: "", errors: null}, action) {
+  switch(action.type) {
+    case 'CHANGE_LOGIN':
+      return Object.assign({}, st0, action.data);
+    default:
+      return st0;
+  }
+}
+
 function forms(st0, action) {
   let reducer = combineReducers({
     new_task,
+    login,
   });
   return reducer(st0, action);
 }
