@@ -1,8 +1,10 @@
 import store from './store';
 
 export function post(path, body) {
+
   let state = store.getState();
   let token = state.session.token;
+
 
   return fetch('/ajax' + path, {
     method: 'post',
@@ -18,9 +20,14 @@ export function post(path, body) {
 }
 
 export function get(path) {
-  let state = store.getState();
-  let token = state.session.token;
 
+	console.log("Initializing state...")
+  let state = store.getState();
+
+	console.log("state = ", state)
+let token = state.session.token;
+
+	console.log("token = ", token)
   return fetch('/ajax' + path, {
     method: 'get',
     credentials: 'same-origin',
@@ -96,6 +103,7 @@ export function submit_new_task(form) {
 export function submit_login(form) {
   let state = store.getState();
   let data = state.forms.login;
+	console.log("in ajax")
 
   post('/sessions', data)
     .then((resp) => {

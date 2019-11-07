@@ -65,10 +65,13 @@ function tasks(st0 = new Map(), action) {
 }
 
 let session0 = localStorage.getItem('session');
+
 if (session0) {
+	console.log("inside session0 if")
   session0 = JSON.parse(session0);
 }
 function session(st0 = session0, action) {
+	console.log("store.js: session st0 = ", st0, "action = ", action.type)
   switch (action.type) {
     case 'LOG_IN':
       return action.data;
@@ -81,7 +84,7 @@ function session(st0 = session0, action) {
 }
 
 function root_reducer(st0, action) {
-  console.log("farts")
+  console.log("ST0 = ", st0, "action = ", action)
   console.log("root reducer", st0, action);
   let reducer = combineReducers({
     forms,
@@ -91,6 +94,7 @@ function root_reducer(st0, action) {
   });
   return deepFreeze(reducer(st0, action));
 }
-
+console.log("Entering createStore funciton...")
 let store = createStore(root_reducer);
+console.log("store = ", store)
 export default store;
