@@ -1,5 +1,5 @@
-defmodule TaskWeb.Router do
-  use TaskWeb, :router
+defmodule Time1Web.Router do
+  use Time1Web, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -16,18 +16,16 @@ defmodule TaskWeb.Router do
     plug :put_secure_browser_headers
   end
 
-  scope "/ajax", TaskWeb do
+  scope "/ajax", Time1Web do
     pipe_through :ajax
 
     resources "/users", UserController, except: [:new, :edit]
     resources "/tasks", TaskController, except: [:new, :edit]
     get "/tasks/:id/file", TaskController, :file
-    resources "/tags", TagController, except: [:new, :edit]
-    resources "/task_tags", TaskTagController, except: [:new, :edit]
     resources "/sessions", SessionController, only: [:create], singleton: true
   end
 
-  scope "/", TaskWeb do
+  scope "/", Time1Web do
     pipe_through :browser
 
     get "/", PageController, :index

@@ -1,9 +1,9 @@
-defmodule TaskWeb.SessionController do
-    use TaskWeb, :controller
+defmodule Time1Web.SessionController do
+    use Time1Web, :controller
   
-    action_fallback TaskWeb.FallbackController
+    action_fallback Time1Web.FallbackController
   
-    alias Task.Users
+    alias Time1.Users
   
     def create(conn, %{"email" => email, "password" => password}) do
       user = Users.authenticate_user(email, password)

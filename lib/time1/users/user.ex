@@ -1,4 +1,4 @@
-defmodule Task.Users.User do
+defmodule Time1.Users.User do
   use Ecto.Schema
   import Ecto.Changeset
 

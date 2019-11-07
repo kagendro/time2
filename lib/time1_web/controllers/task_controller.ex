@@ -1,12 +1,12 @@
-defmodule TaskWeb.TaskController do
-  use TaskWeb, :controller
+defmodule Time1Web.TaskController do
+  use Time1Web, :controller
 
-  alias Task.Tasks
-  alias Task.Tasks.Task
+  alias Time1.Tasks
+  alias Time1.Tasks.Task
 
-  action_fallback TaskWeb.FallbackController
+  action_fallback Time1Web.FallbackController
 
-  plug TaskWeb.Plugs.RequireAuth when action in [:create, :update, :delete]
+  plug Time1Web.Plugs.RequireAuth when action in [:create, :update, :delete]
 
   def index(conn, _params) do
     tasks = Tasks.list_tasks()

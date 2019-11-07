@@ -1,15 +1,15 @@
 
 ## Nat Tuck authentication function
 
-defmodule Task.Users do
+defmodule Time1.Users do
   @moduledoc """
   The Users context.
   """
 
   import Ecto.Query, warn: false
-  alias Task.Repo
+  alias Time1.Repo
 
-  alias Task.Users.User
+  alias Time1.Users.User
 
   @doc """
   Returns the list of users.
