@@ -1,5 +1,5 @@
-defmodule Time1Web.Router do
-  use Time1Web, :router
+defmodule LensWeb.Router do
+  use LensWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -9,19 +9,29 @@ defmodule Time1Web.Router do
     plug :put_secure_browser_headers
   end
 
-  pipeline :api do
+  pipeline :ajax do
     plug :accepts, ["json"]
+    plug :fetch_session
+    plug :protect_from_forgery
+    plug :put_secure_browser_headers
   end
 
-  scope "/", Time1Web do
+  scope "/ajax", LensWeb do
+    pipe_through :ajax
+
+    resources "/users", UserController, except: [:new, :edit]
+    resources "/photos", PhotoController, except: [:new, :edit]
+    get "/photos/:id/file", PhotoController, :file
+    resources "/tags", TagController, except: [:new, :edit]
+    resources "/photo_tags", PhotoTagController, except: [:new, :edit]
+    resources "/sessions", SessionController, only: [:create], singleton: true
+  end
+
+  scope "/", LensWeb do
     pipe_through :browser
 
     get "/", PageController, :index
-
+    get "/*path", PageController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Time1Web do
-  #   pipe_through :api
-  # end
 end

@@ -16,3 +16,4 @@ defmodule Time1Web.TaskView do
       hours: task.hours}
   end
 end
+

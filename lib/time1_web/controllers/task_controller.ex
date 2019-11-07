@@ -1,42 +1,44 @@
-defmodule Time1Web.TaskController do
-  use Time1Web, :controller
+defmodule LensWeb.PhotoController do
+  use LensWeb, :controller
 
-  alias Time1.Tasks
-  alias Time1.Tasks.Task
+  alias Lens.Photos
+  alias Lens.Photos.Photo
 
-  action_fallback Time1Web.FallbackController
+  action_fallback LensWeb.FallbackController
+
+  plug LensWeb.Plugs.RequireAuth when action in [:create, :update, :delete]
 
   def index(conn, _params) do
-    task = Tasks.list_task()
-    render(conn, "index.json", task: task)
+    photos = Photos.list_photos()
+    render(conn, "index.json", photos: photos)
   end
 
-  def create(conn, %{"task" => task_params}) do
-    with {:ok, %Task{} = task} <- Tasks.create_task(task_params) do
+  def create(conn, %{"photo" => photo_params}) do
+    with {:ok, %Photo{} = photo} <- Photos.create_photo(photo_params) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", Routes.task_path(conn, :show, task))
-      |> render("show.json", task: task)
+      |> put_resp_header("location", Routes.photo_path(conn, :show, photo))
+      |> render("show.json", photo: photo)
     end
   end
 
   def show(conn, %{"id" => id}) do
-    task = Tasks.get_task!(id)
-    render(conn, "show.json", task: task)
+    photo = Photos.get_photo!(id)
+    render(conn, "show.json", photo: photo)
   end
 
-  def update(conn, %{"id" => id, "task" => task_params}) do
-    task = Tasks.get_task!(id)
+  def update(conn, %{"id" => id, "photo" => photo_params}) do
+    photo = Photos.get_photo!(id)
 
-    with {:ok, %Task{} = task} <- Tasks.update_task(task, task_params) do
-      render(conn, "show.json", task: task)
+    with {:ok, %Photo{} = photo} <- Photos.update_photo(photo, photo_params) do
+      render(conn, "show.json", photo: photo)
     end
   end
 
   def delete(conn, %{"id" => id}) do
-    task = Tasks.get_task!(id)
+    photo = Photos.get_photo!(id)
 
-    with {:ok, %Task{}} <- Tasks.delete_task(task) do
+    with {:ok, %Photo{}} <- Photos.delete_photo(photo) do
       send_resp(conn, :no_content, "")
     end
   end
