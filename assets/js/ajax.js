@@ -33,31 +33,31 @@ export function get(path) {
   }).then((resp) => resp.json());
 }
 
-export function get_photo(id) {
-  get('/photos/'+id)
+export function get_task(id) {
+  get('/tasks/'+id)
     .then((resp) => {
       store.dispatch({
-        type: 'ADD_PHOTOS',
+        type: 'ADD_TASKS',
         data: [resp.data],
       });
     });
 }
 
-export function list_photos() {
-  get('/photos')
+export function list_tasks() {
+  get('/tasks')
     .then((resp) => {
-      console.log("list_photos", resp);
+      console.log("list_tasks", resp);
       store.dispatch({
-        type: 'ADD_PHOTOS',
+        type: 'ADD_TASKS',
         data: resp.data,
       });
     });
 }
 
-export function submit_new_photo(form) {
+export function submit_new_task(form) {
   let state = store.getState();
   console.log("state", state);
-  let data = state.forms.new_photo;
+  let data = state.forms.new_task;
 
   if (data.file == null) {
     return;
@@ -65,8 +65,8 @@ export function submit_new_photo(form) {
 
   let reader = new FileReader();
   reader.addEventListener("load", () => {
-    post('/photos', {
-      photo: {
+    post('/tasks', {
+      task: {
         desc: data.desc,
         filename: data.file.name,
         data: reader.result,
@@ -76,14 +76,14 @@ export function submit_new_photo(form) {
       console.log(resp);
       if (resp.data) {
         store.dispatch({
-          type: 'ADD_PHOTOS',
+          type: 'ADD_TASKS',
           data: [resp.data],
         });
-        form.redirect('/photos/' + resp.data.id);
+        form.redirect('/tasks/' + resp.data.id);
       }
       else {
         store.dispatch({
-          type: 'CHANGE_NEW_PHOTO',
+          type: 'CHANGE_NEW_TASK',
           data: {errors: JSON.stringify(resp.errors)},
         });
       }

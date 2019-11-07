@@ -1,4 +1,4 @@
-defmodule Lens.Users.User do
+defmodule Task.Users.User do
   use Ecto.Schema
   import Ecto.Changeset
 

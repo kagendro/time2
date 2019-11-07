@@ -1,44 +1,44 @@
-defmodule LensWeb.PhotoController do
-  use LensWeb, :controller
+defmodule TaskWeb.TaskController do
+  use TaskWeb, :controller
 
-  alias Lens.Photos
-  alias Lens.Photos.Photo
+  alias Task.Tasks
+  alias Task.Tasks.Task
 
-  action_fallback LensWeb.FallbackController
+  action_fallback TaskWeb.FallbackController
 
-  plug LensWeb.Plugs.RequireAuth when action in [:create, :update, :delete]
+  plug TaskWeb.Plugs.RequireAuth when action in [:create, :update, :delete]
 
   def index(conn, _params) do
-    photos = Photos.list_photos()
-    render(conn, "index.json", photos: photos)
+    tasks = Tasks.list_tasks()
+    render(conn, "index.json", tasks: tasks)
   end
 
-  def create(conn, %{"photo" => photo_params}) do
-    with {:ok, %Photo{} = photo} <- Photos.create_photo(photo_params) do
+  def create(conn, %{"task" => task_params}) do
+    with {:ok, %Task{} = task} <- Tasks.create_task(task_params) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", Routes.photo_path(conn, :show, photo))
-      |> render("show.json", photo: photo)
+      |> put_resp_header("location", Routes.task_path(conn, :show, task))
+      |> render("show.json", task: task)
     end
   end
 
   def show(conn, %{"id" => id}) do
-    photo = Photos.get_photo!(id)
-    render(conn, "show.json", photo: photo)
+    task = Tasks.get_task!(id)
+    render(conn, "show.json", task: task)
   end
 
-  def update(conn, %{"id" => id, "photo" => photo_params}) do
-    photo = Photos.get_photo!(id)
+  def update(conn, %{"id" => id, "task" => task_params}) do
+    task = Tasks.get_task!(id)
 
-    with {:ok, %Photo{} = photo} <- Photos.update_photo(photo, photo_params) do
-      render(conn, "show.json", photo: photo)
+    with {:ok, %Task{} = task} <- Tasks.update_task(task, task_params) do
+      render(conn, "show.json", task: task)
     end
   end
 
   def delete(conn, %{"id" => id}) do
-    photo = Photos.get_photo!(id)
+    task = Tasks.get_task!(id)
 
-    with {:ok, %Photo{}} <- Photos.delete_photo(photo) do
+    with {:ok, %Task{}} <- Tasks.delete_task(task) do
       send_resp(conn, :no_content, "")
     end
   end

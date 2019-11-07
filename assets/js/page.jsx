@@ -4,9 +4,9 @@ import { BrowserRouter as Router, Switch, Route, NavLink, Link } from 'react-rou
 import { Navbar, Nav, Col } from 'react-bootstrap';
 import { Provider, connect } from 'react-redux';
 
-import PhotosList from './photos/index';
-import PhotosNew from './photos/new';
-import PhotosShow from './photos/show';
+import TasksList from './tasks/index';
+import TasksNew from './tasks/new';
+import TasksShow from './tasks/show';
 import Login from './login';
 
 import store from './store';
@@ -37,8 +37,8 @@ function Page(props) {
               </NavLink>
             </Nav.Item>
             <Nav.Item>
-              <NavLink to="/photos/new" exact activeClassName="active" className="nav-link">
-                New Photo
+              <NavLink to="/tasks/new" exact activeClassName="active" className="nav-link">
+                New task
               </NavLink>
             </Nav.Item>
           </Nav>
@@ -50,20 +50,20 @@ function Page(props) {
 
       <Switch>
         <Route exact path="/">
-          <PhotosList />
+          <TasksList />
         </Route>
 
         <Route exact path="/users">
           <h1>Users</h1>
         </Route>
 
-        <Route exact path="/photos/new">
-          <PhotosNew />
+        <Route exact path="/tasks/new">
+          <TasksNew />
         </Route>
 
-        <Route exact path="/photos/:id" render={
+        <Route exact path="/tasks/:id" render={
           (props) =>
-            <PhotosShow id={props.match.params.id} />
+            <TasksShow id={props.match.params.id} />
         } />
 
         <Route exact path="/login">
