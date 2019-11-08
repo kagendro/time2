@@ -55,14 +55,15 @@ class TasksNew extends React.Component {
       <div>
         <h1>New Task</h1>
         { error_msg }
-        <Form.Group controlId="upload">
+        <Form.Group controlId="name">
           <Form.Label>Task Name</Form.Label>
-          <Form.Control type="file" onChange={(ev) => this.file_changed(ev)} />
+          <Form.Control type="text" 
+	                 onChange={(ev) => this.changed({name: ev.target.value})} />
         </Form.Group>
-        <Form.Group controlId="desc">
-          <Form.Label>Description</Form.Label>
-          <Form.Control as="textarea" rows="3"
-                        onChange={(ev) => this.changed({desc: ev.target.value}) }/>
+        <Form.Group controlId="hours">
+          <Form.Label>Hours Worked</Form.Label>
+          <Form.Control type="text"
+                        onChange={(ev) => this.changed({hours: ev.target.value}) }/>
         </Form.Group>
         <Form.Group controlId="submit">
           <Button variant="primary"
