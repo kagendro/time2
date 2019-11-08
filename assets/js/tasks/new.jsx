@@ -62,8 +62,16 @@ class TasksNew extends React.Component {
         </Form.Group>
         <Form.Group controlId="hours">
           <Form.Label>Hours Worked</Form.Label>
-          <Form.Control type="text"
-                        onChange={(ev) => this.changed({hours: ev.target.value}) }/>
+          <Form.Control as="select">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+        </Form.Control>
         </Form.Group>
         <Form.Group controlId="submit">
           <Button variant="primary"
