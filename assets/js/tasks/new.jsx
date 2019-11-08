@@ -55,10 +55,16 @@ class TasksNew extends React.Component {
       <div>
         <h1>New Task</h1>
         { error_msg }
+
         <Form.Group controlId="name">
-          <Form.Label>Task Name</Form.Label>
-          <Form.Control type="text" 
-	                 onChange={(ev) => this.changed({name: ev.target.value})} />
+          <Form.Label>Job Name</Form.Label>
+          <Form.Control as="select">
+            <option>JB01</option>
+            <option>JB02</option>
+            <option>JB03</option>
+            <option>JB04</option>
+            <option>JB05</option>
+        </Form.Control>
         </Form.Group>
         <Form.Group controlId="hours">
           <Form.Label>Hours Worked</Form.Label>

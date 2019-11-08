@@ -74,10 +74,8 @@ export function submit_new_task(form) {
   reader.addEventListener("load", () => {
     post('/tasks', {
       task: {
-        desc: data.desc,
-        filename: data.file.name,
-        data: reader.result,
-        user_id: 1,
+        hours: data.hours,
+        name: data.name,
       }
     }).then((resp) => {
       console.log(resp);
