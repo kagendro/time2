@@ -84,7 +84,7 @@ export function submit_new_task(form) {
           type: 'ADD_TASKS',
           data: [resp.data],
         });
-        form.redirect('/tasks/' + resp.data.id);
+        form.redirect('/tasks');
       }
       else {
         store.dispatch({
