@@ -65,6 +65,7 @@ function tasks(st0 = new Map(), action) {
 }
 
 let session0 = localStorage.getItem('session');
+console.log("session0 = ", session0)
 
 if (session0) {
 	console.log("inside session0 if")
