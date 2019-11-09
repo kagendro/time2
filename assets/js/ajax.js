@@ -107,6 +107,7 @@ export function submit_login(form) {
   post('/sessions', data)
     .then((resp) => {
       console.log(resp);
+      console.log("entered post function")
       if (resp.token) {
         localStorage.setItem('session', JSON.stringify(resp));
         store.dispatch({
