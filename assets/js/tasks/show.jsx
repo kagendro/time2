@@ -11,7 +11,6 @@ function state2props(state, props) {
 }
 
 function tasksShow({id, task}) {
-  let image = null;
 
   if (!task) {
     get_task(id);

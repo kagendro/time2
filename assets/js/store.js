@@ -94,7 +94,7 @@ function root_reducer(st0, action) {
   });
   return deepFreeze(reducer(st0, action));
 }
-console.log("Entering createStore funciton...")
+console.log("Entering createStore function...")
 let store = createStore(root_reducer);
 console.log("store = ", store)
 export default store;
