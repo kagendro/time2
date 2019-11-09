@@ -103,6 +103,7 @@ export function submit_login(form) {
   let data = state.forms.login;
   console.log("in ajax")
   console.log(data)
+  console.log(resp)
 
   post('/sessions', data)
     .then((resp) => {
