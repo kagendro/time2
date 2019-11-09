@@ -101,7 +101,8 @@ export function submit_new_task(form) {
 export function submit_login(form) {
   let state = store.getState();
   let data = state.forms.login;
-	console.log("in ajax")
+  console.log("in ajax")
+  console.log(data)
 
   post('/sessions', data)
     .then((resp) => {
