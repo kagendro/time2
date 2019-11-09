@@ -68,7 +68,6 @@ let session0 = localStorage.getItem('session');
 
 if (session0) {
 	console.log("inside session0 if")
-  session0 = JSON.parse(session0);
 }
 function session(st0 = session0, action) {
 	console.log("store.js: session st0 = ", st0, "action = ", action.type)
