@@ -65,11 +65,10 @@ function tasks(st0 = new Map(), action) {
 }
 
 let session0 = localStorage.getItem('session');
-console.log("session0 = ", session0)
 
 if (session0) {
+  console.log
 	console.log("inside session0 if")
-  session0 = JSON.parse(session0);
 }
 function session(st0 = session0, action) {
 	console.log("store.js: session st0 = ", st0, "action = ", action.type)
