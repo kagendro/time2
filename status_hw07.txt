@@ -21,8 +21,7 @@ http://time2.kevingendron.com/
 
 
 5. Is your app functionality complete? If not, what's missing?
-At the moment, I have a session error which isn't allowing me to see what is/isn't working. 
-
+At the moment, I'm getting a json.parse error that won't allow forms to submit. Can't test what funnctionality is working because of it.
 
 6. Is your app properly deployed? If not, what went wrong?
 Yes
