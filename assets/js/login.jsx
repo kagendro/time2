@@ -51,8 +51,18 @@ class Login extends React.Component {
           <Form.Control type="text" onChange={
             (ev) => this.changed({email: ev.target.value})} />
         </Form.Group>
+        <Form.Group controlId="email">
+          <Form.Label>Name</Form.Label>
+          <Form.Control type="text" onChange={
+            (ev) => this.changed({email: ev.target.value})} />
+        </Form.Group>
         <Form.Group controlId="password">
           <Form.Label>Password</Form.Label>
+          <Form.Control type="password" onChange={
+            (ev) => this.changed({password: ev.target.value})} />
+        </Form.Group>
+        <Form.Group controlId="password">
+          <Form.Label>Password Confirmation</Form.Label>
           <Form.Control type="password" onChange={
             (ev) => this.changed({password: ev.target.value})} />
         </Form.Group>
