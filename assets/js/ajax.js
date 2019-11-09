@@ -41,7 +41,7 @@ let token = state.session.token;
 }
 
 export function get_task(id) {
-  get('/tasks/'+id)
+  get('/tasks/' + id)
     .then((resp) => {
       store.dispatch({
         type: 'ADD_TASKS',
@@ -103,6 +103,8 @@ export function submit_login(form) {
   let data = state.forms.login;
   console.log("in ajax")
   console.log(data)
+  let test = JSON.stringify(data)
+  console.log(test)
 
   post('/sessions', data)
     .then((resp) => {
